@@ -45,6 +45,7 @@ public class StudentController {
         return "redirect:/student";
     }
 
+    //修改学生信息
     @PutMapping(value = "/student/detail/{id}/{userName}/{userAge}")
     public String studentPut(@PathVariable("id") Integer id, @PathVariable("userName") String userName, @PathVariable("userAge") Integer userAge) {
         Student student = new Student(id, userName, userAge);
@@ -52,6 +53,7 @@ public class StudentController {
         return "redirect:/student";
     }
 
+    //删除指定学生
     @DeleteMapping(value = "/student/detail/{id}")
     public String studentDelete(@PathVariable("id") Integer id) {
         studentService.deleteStudent(id);

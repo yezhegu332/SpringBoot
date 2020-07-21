@@ -26,7 +26,7 @@
         </dependency>
         <!--
             如果SpringBoot集成jsp，项目仅仅只是展示jsp页面，那么就必须添加一个依赖：
-            SpringBoot内嵌Tomcat对jsp的一个解析包
+            SpringBoot内嵌Tomcat对jsp的解析依赖
         -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
