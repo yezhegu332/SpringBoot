@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>URL路径表达式：@{xxx}</h1>
+<h2>绝对路径（没有参数）</h2>
+<a href="http://www.baidu.com">百度</a><br>
+<a th:href="@{http://www.baidu.com}">百度</a><br>
+<a href="http://localhost:8080/url">标准变量表达式</a><br>
+<a th:href="@{http://localhost:8080/url}">标准变量表达式</a><br>
+
+<h2>绝对路径（有参数，值是页面固定的）</h2>
+<a th:href="@{http://localhost:8080/user/info?id=1001}">用户信息（参数值固定）</a><br>
+<a href="http://localhost:8080/user/info?id=1001">用户信息（参数值固定）</a><br>
+
+<h2>绝对路径（有参数，值是从后台获取的）</h2>
+<a th:href="@{'http://localhost:8080/user/info?id='+${userId}}">路径表达式：参数值从后台获取</a><br>
+<a th:href="@{'http://localhost:8080/user/info?id='+${userId}+'&username='+${username}}">路径表达式：多个参数值从后台获取</a><br>
+
+<h1>实际开发中推荐使用的都是：相对路径</h1>
+<h2>相对路径（没有参数）</h2>
+<a th:href="@{/user/detail}">用户详情（没有参数）</a>
+
+<h2>相对路径（有参数，值是页面固定的）</h2>
+<a th:href="@{/user/info?id=9999}">用户信息（有参数：值是页面固定）</a>
+
+<h2>相对路径（有1个从后台获取的参数）</h2>
+<a th:href="@{'/user/info?id='+${userId}}">用户信息（有1个从后台获取的参数）</a>
+
+<h2>相对路径（有多个从后台获取的参数）</h2>
+<a th:href="@{'/user/info?id='+${userId}+'&username='+${username}}">用户信息（有多个从后台获取的参数）</a>
+
+<h2>相对路径（有多个参数：值是从后台获取）->优雅的传递参数的方式</h2>
+<a th:href="@{/user/info(id=${userId},username=${username})}">相对路径（有多个参数：值是从后台获取）->优雅的传递参数的方式</a>
+</body>
+</html>

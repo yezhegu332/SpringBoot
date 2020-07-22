@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>标准变量表达式：${xxx}</h1>
+<div th:text="${data}"></div>
+<span th:text="${user}"></span><br>
+用户编号：<span th:text="${user.id}"></span><br>
+用户姓名：<span th:text="${user.getUserName()}"></span><br>
+
+<h1>选择变量表达式（星号表达式）：*{xxx}</h1>
+<div th:object="${user}">
+    用户编号：<span th:text="*{id}"></span><br>
+    用户姓名：<span th:text="*{getUserName()}"></span><br>
+</div>
+
+<h1>标准变量表达式和选择变量表达式的混合使用</h1>
+用户编号：<span th:text="*{user.id}"></span><br>
+用户姓名：<span th:text="*{user.getUserName()}"></span><br>
+</body>
+</html>
