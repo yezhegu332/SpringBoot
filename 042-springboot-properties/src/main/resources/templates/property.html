@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+        })
+
+        function test() {
+            var id = $("#id").val();
+            var username = $("#username").val();
+            alert("id = " + id + "，username = " + username);
+            return false;
+        }
+    </script>
+</head>
+<body>
+<h1>Thymeleaf模板常用属性</h1>
+<form th:id="myForm" th:method="post" th:action="@{/user/add}">
+    用户编号：<input type="text" id="id" name="id"><br>
+    用户姓名：<input type="text" th:id="username" th:name="username" th:value="${data}"><br>
+    <input type="submit" th:value="提交"><br>
+    <button th:onclick="test()">来提交</button>
+    <hr>
+    <span th:attr="zhangsan=${data}"></span>
+    <img th:src="@{/img/a.jpg}">
+</form>
+</body>
+</html>

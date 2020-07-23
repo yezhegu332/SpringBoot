@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>
+    user:循环体对象的变量名
+    userList：循环体对象的状态，可以忽略不屑，默认变量名就是：循环体变量名+Stat
+    ${userList}循环的集合
+</h3>
+<div th:each="user,userStat:${userList}">
+    <span th:text="'index='+${userStat.index}"></span>
+    <span th:text="'count='+${userStat.count}"></span>
+    <span th:text="${user.id}"></span>
+    <span th:text="${user.name}"></span>
+    <span th:text="${user.phone}"></span>
+    <span th:text="${user.address}"></span>
+    <hr>
+</div>
+</body>
+</html>

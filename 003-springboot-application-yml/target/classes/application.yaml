@@ -1,4 +1,6 @@
 server:
   servlet:
+    #上下文根
     context-path: /yaml
+    #端口号
   port: 8081

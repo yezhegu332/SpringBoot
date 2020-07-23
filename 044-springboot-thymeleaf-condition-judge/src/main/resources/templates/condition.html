@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>条件判断</title>
+</head>
+<body>
+<span th:if="${sex == 1}">男</span>
+<span th:if="${sex eq 1}">男</span>
+<!--th:unless：对if的结果取反-->
+<span th:unless="${sex != 1}">女</span>
+<span th:unless="${sex ne 1}">女</span>
+<hr>
+<div th:switch="${sex}">
+    <div th:case="0">女</div>
+    <div th:case="1">男</div>
+    <div th:case="*">其他</div>
+</div>
+<hr>
+</body>
+</html>

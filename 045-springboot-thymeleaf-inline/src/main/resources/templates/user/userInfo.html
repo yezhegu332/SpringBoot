@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:inline="javascript">
+        function showUserInfo() {
+            alert("用户编号："+[[${user.id}]]+"，用户姓名："+[[${user.name}]]);
+        }
+    </script>
+</head>
+<body th:inline="text">
+<h1>页面</h1>
+用户编号：<span th:text="${user.id}"></span><br>
+用户姓名：<span th:text="${user.name}"></span><br>
+用户手机：<span th:text="${user.phone}"></span><br>
+
+<h1>使用内联文本 -> th:inline="text"</h1>
+<div>
+    用户编号：[[user.id]]
+    用户姓名：[[user.name]]
+    用户手机：[[${user.phone}]]
+</div>
+<hr>
+用户编号：[[user.id]]
+用户姓名：[[user.name]]
+用户手机：[[${user.phone}]]
+<br>
+<button th:onclick="showUserInfo()">用户信息</button>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="user,userStat:${userArray}">
+    <span th:text="'index='+${userStat.index}"></span>
+    <span th:text="'size='+${userStat.size}"></span>
+    <span th:text="'even='+${userStat.even}"></span><!--判断是不是偶数-->
+    <span th:text="'current='+${userStat.current}"></span>
+    <span th:text="${user.id}"></span>
+    <span th:text="${user.name}"></span>
+    <span th:text="${user.phone}"></span>
+    <span th:text="${user.address}"></span>
+    <hr>
+</div>
+</body>
+</html>

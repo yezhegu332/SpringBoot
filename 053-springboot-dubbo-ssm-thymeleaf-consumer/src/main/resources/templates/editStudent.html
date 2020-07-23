@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        $(function () {
+            $("input:submit").click(function () {
+                var id = $("input[name='id']").val();
+                var userName = $("input[name='userName']").val();
+                var userAge = $("input[name='userAge']").val();
+                $("#editForm").attr("action", $("#editForm").attr("action") + id + "/" + userName + "/" + userAge);
+                $("#editForm").submit();
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+<form id="editForm" th:action="@{/student/edit/}" method="post">
+    <input type="hidden" name="_method" value="put">
+    学生编号：<input type="text" name="id" th:value="${student.id}" readonly><br>
+    学生姓名：<input type="text" name="userName" th:value="${student.userName}"><br>
+    学生年龄：<input type="text" name="userAge" th:value="${student.userAge}"><br>
+    <input type="submit" value="修改学生信息">
+</form>
+</body>
+</html>

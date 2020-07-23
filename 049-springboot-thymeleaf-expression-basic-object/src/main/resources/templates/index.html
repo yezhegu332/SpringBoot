@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:inline="javascript">
+        window.onload = function () {
+            //协议
+            var scheme = [[${#httpServletRequest.getScheme()}]];
+            // var scheme = [[${#servletContext.getContextPath()}]];
+
+            //IP地址
+            var serverName = [[${#httpServletRequest.getServerName()}]];
+
+            //服务端口号
+            var serverPort = [[${#httpServletRequest.getServerPort()}]]
+
+            //上下文根
+            var contextPath = [[${#request.getContextPath()}]];
+
+            document.getElementById("h2").innerText = scheme + "://" + serverName + ":" + serverPort + contextPath;
+        }
+
+    </script>
+</head>
+<body>
+<h2 th:text="${#servletContext.getContextPath()}"></h2>
+<h2 id="h2"></h2>
+<h2>从session中获取数据</h2>
+<span th:text="${#session.getAttribute('username')}"></span><br>
+<span th:text="${#httpSession.getAttribute('username')}"></span><br>
+<span th:text="${session.username}"></span><br>
+</body>
+</html>

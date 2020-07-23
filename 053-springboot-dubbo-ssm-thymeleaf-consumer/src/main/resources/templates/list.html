@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        $(function () {
+            var contextPath = [[${#request.getContextPath()}]];
+            $("#addStudent").click(function () {
+                window.location.href = contextPath + "/student/toAdd";
+            })
+
+            $(".deleteA").click(function () {
+                var _this = $(this);
+                var deleteUrl = _this.attr("href");
+                $.ajax({
+                    url: deleteUrl,
+                    type: "delete",
+                    success: function (data) {
+                        if (data == 1) {
+                            _this.parents("tr").remove();
+                            $("#allStudentSpan").text($(allStudentSpan).text() - data);
+                        }
+                    }
+                })
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+学生总人数：<span id="allStudentSpan" th:text="${allStudentCount}"></span><br>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>编辑</td>
+        <td>删除</td>
+    </tr>
+    <tr th:each="student:${studentList}">
+        <td>[[${student.id}]]</td>
+        <td>[[${student.userName}]]</td>
+        <td>[[${student.userAge}]]</td>
+        <td><a class="editA" th:href="@{'/student/toEdit/'+${student.id}}" th>编辑</a></td>
+        <td><a class="deleteA" th:href="@{'/student/delete/'+${student.id}}">删除</a></td>
+    </tr>
+</table>
+<br>
+<button id="addStudent">新增学员</button>
+
+
+</body>
+</html>

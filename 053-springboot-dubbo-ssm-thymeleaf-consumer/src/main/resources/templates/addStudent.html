@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#addStudentBtn").click(function () {
+                var userName = $("input[name='userName']").val();
+                var userAge = $("input[name='userAge']").val();
+                $("#addForm").attr("action",$("#addForm").attr("action")+userName+"/"+userAge);
+                $("#addForm").submit();
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+<form id="addForm" th:action="@{/student/add/}" method="post">
+    学生姓名：<input type="text" name="userName"><br>
+    学生年龄：<input type="text" name="userAge"><br>
+    <input id="addStudentBtn" type="submit" value="新增学员">
+</form>
+
+</body>
+</html>

@@ -1,6 +1,0 @@
-com\listen\springboot\service\impl\StudentServiceImpl.class
-com\listen\springboot\service\StudentService.class
-com\listen\springboot\domain\Student.class
-com\listen\springboot\controller\StudentController.class
-com\listen\springboot\mapper\StudentMapper.class
-com\listen\springboot\Application.class
